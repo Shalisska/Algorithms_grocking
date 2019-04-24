@@ -47,5 +47,33 @@ namespace Algorithms.Code
             var subMax = FindMax(list.Skip(1));
             return list.First() > subMax ? list.First() : subMax;
         }
+
+        public int? FindItemIndexBinarySearch(IEnumerable<int> list, int item, int min, int max)
+        {
+            if (!list.Any() || max < min)
+                return null;
+
+
+            var mid = (min + max) / 2;
+            var midItem = list.ElementAt(mid);
+            if (midItem == item)
+                return mid;
+
+            return midItem > item ?
+                FindItemIndexBinarySearch(list, item, min, mid - 1) :
+                FindItemIndexBinarySearch(list, item, mid + 1, max);
+        }
+
+        public IEnumerable<int> QuickSorting(IEnumerable<int> list)
+        {
+            if (list.Count() <= 1)
+                return list;
+
+            var pivot = list.ElementAtOrDefault((list.Count() - 1) / 2);
+            var less = list.Where(i => i < pivot);
+            var greater = list.Where(i => i > pivot);
+
+            return QuickSorting(less).Union(new int[] { pivot }).Union(QuickSorting(greater));
+        }
     }
 }
