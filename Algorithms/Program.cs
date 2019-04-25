@@ -8,11 +8,15 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            var recursion = new Recursion();
+            //var recursion = new Recursion();
 
             //recursion.CountdownConsole(5);
             //recursion.Greet("Hel");
-            Console.WriteLine(recursion.GetFactorial(5));
+            //Console.WriteLine(recursion.GetFactorial(5));
+
+            var service = new BreadthFirstSearch();
+            var result = service.SearchSeller("you");
+            Console.WriteLine(result);
 
             Console.ReadKey();
         }
