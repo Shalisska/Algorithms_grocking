@@ -1,6 +1,8 @@
 ﻿using System;
 using Algorithms.Data;
 using Algorithms.Code;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Algorithms
 {
@@ -14,9 +16,20 @@ namespace Algorithms
             //recursion.Greet("Hel");
             //Console.WriteLine(recursion.GetFactorial(5));
 
-            var service = new BreadthFirstSearch();
-            var result = service.SearchSeller("you");
-            Console.WriteLine(result);
+            //var service = new BreadthFirstSearch();
+            //var result = service.SearchSeller("you");
+            //Console.WriteLine(result);
+
+            var serviceDijkstras = new DijkstrasAlgorithm(1);
+            var result = serviceDijkstras.GetResult();
+
+            Console.WriteLine($"Nodes count: {result.Count}");
+            Console.WriteLine($"Total cost: {result.Values.Sum()}");
+
+            foreach(var node in result)
+            {
+                Console.WriteLine($"node: {node.Key}, cost: {node.Value}");
+            }
 
             Console.ReadKey();
         }
