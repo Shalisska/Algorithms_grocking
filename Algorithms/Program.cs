@@ -20,15 +20,23 @@ namespace Algorithms
             //var result = service.SearchSeller("you");
             //Console.WriteLine(result);
 
-            var serviceDijkstras = new DijkstrasAlgorithm(1);
-            var result = serviceDijkstras.GetResult();
+            //var serviceDijkstras = new DijkstrasAlgorithm(1);
+            //var result = serviceDijkstras.GetResult();
 
-            Console.WriteLine($"Nodes count: {result.Count}");
-            Console.WriteLine($"Total cost: {result.Values.Sum()}");
+            //Console.WriteLine($"Nodes count: {result.Count}");
+            //Console.WriteLine($"Total cost: {result.Values.Sum()}");
 
-            foreach(var node in result)
+            //foreach(var node in result)
+            //{
+            //    Console.WriteLine($"node: {node.Key}, cost: {node.Value}");
+            //}
+
+            var service = new GreedyAlgorithms();
+            var result = service.SetCovering();
+            Console.WriteLine(result.Count);
+            foreach(var item in result)
             {
-                Console.WriteLine($"node: {node.Key}, cost: {node.Value}");
+                Console.WriteLine(item);
             }
 
             Console.ReadKey();
