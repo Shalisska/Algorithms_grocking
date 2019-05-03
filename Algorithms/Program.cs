@@ -31,13 +31,17 @@ namespace Algorithms
             //    Console.WriteLine($"node: {node.Key}, cost: {node.Value}");
             //}
 
-            var service = new GreedyAlgorithms();
-            var result = service.SetCovering();
-            Console.WriteLine(result.Count);
-            foreach(var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            //var service = new GreedyAlgorithms();
+            //var result = service.SetCovering();
+            //Console.WriteLine(result.Count);
+            //foreach(var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            var service = new DynamicProgramming();
+            //service.TetrisBag();
+            service.MaxSubstring();
 
             Console.ReadKey();
         }
